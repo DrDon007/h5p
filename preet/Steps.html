@@ -1,0 +1,184 @@
+<!-- Step 1: Create click boxes and video -->
+<div class="box1"></div>
+<div class="box2"></div>
+<video id="video1" controls autoplay="true">
+	<source src="media/office_conv.m4v" type="video/mp4">
+	Your browser does not support the video tag.
+</video>
+
+<!-- Step 2: Resizing the Video -->
+<style type="text/css">
+	
+video{
+	width: 100%;
+	height: auto;
+}
+
+</style>
+
+<!-- Step 3: Stylizing the Boxes -->
+
+<style type="text/css">
+	
+.box1{
+	position: absolute;
+	background-color: rgba(40, 169, 220, 0);
+	width: 200px;
+	height: 200px;
+	top: 50px;
+	left: 630px;
+	cursor: pointer;
+}
+
+.box2{
+	position: absolute;
+	background-color: rgba(207, 50, 53, 0);
+	width: 200px;
+	height: 200px;
+	top: 70px;
+	left: 150px;
+	cursor: pointer;
+}
+
+.videoArea{
+	position: relative;
+}
+
+</style>
+
+<!-- Step 4: Lighbox Content HTML -->
+<div class="lightbox popUpQuestion1">
+	<h4>Question 1</h4>
+	<p>Think about what you learned and then how would you respond?</p>
+	<br>
+	<a href="#" class="button longBtns goodChoice">Calmly respond with helpful info</a>
+	<a href="#" class="button longBtns badChoice">Why is he asking me this question?</a>
+</div>
+
+<div class="lightbox persona1PopUp">
+	<img src="images/Justin.jpg">
+	<h5>Justins Hanks</h5>
+	<p>Role: Development Manager</p>
+	<p>Bio: Justin has been a manager for 4 years. sakjdhsakjdh askjdh ksajhd aksjh askjdhksajd askjhd askjhdkjsah </p>
+	<p>Previous Experiences</p>
+	<ul>
+		<li>Experience 1: 2002-2004</li>
+		<li>Experience 2: 2005-2009</li>
+		<li>Experience 3: 2010-2016</li>
+	</ul>
+</div>
+
+<div class="lightbox persona2PopUp">
+	<img src="images/Matt.jpg">
+	<h5>Matt Briscoe</h5>
+	<p>Role: Developer</p>
+	<p>Bio: Matt has been a manager for 4 years. This alkjdlas asldkjasldj aslkdj aklsdjlsakdjalskjd salkdj salkjd</p>
+	<p>Previous Experiences</p>
+	<ul>
+		<li>Experience 1: 2002-2004</li>
+		<li>Experience 2: 2005-2009</li>
+		<li>Experience 3: 2010-2016</li>
+	</ul>
+</div>
+
+<!-- Step 5: Hiding the lightbox content -->
+<style type="text/css">
+	
+.lightbox{
+	display: none;
+}
+
+</style>
+
+<!-- Step 6: Click events on buttons -->
+<script type="text/javascript">
+	
+$('.box1').on('click', function(){
+	
+});
+
+$('.box2').on('click', function(){
+
+});
+
+</script>
+
+<!-- Step 7: Calling the play/pause function -->
+<script type="text/javascript">
+	
+//In the click events
+playPauseVideo('.persona1PopUp');
+playPauseVideo('.persona2PopUp');
+
+// After the onReady event
+function playPauseVideo(popUp){
+	if(video1[0].paused){
+		video1[0].play();
+	} else{
+		video1[0].pause();
+		$.featherlight($(popUp));
+	}
+}
+
+</script>
+
+<!-- Step 8: Running the function when featherlight is closed -->
+<script type="text/javascript">
+
+$.featherlight.defaults.afterClose = playPauseVideo;
+
+</script>
+
+<!-- Step 9: Video loaded -->
+<script type="text/javascript">
+	
+$(video1).on('loadeddata', function(){
+	videoHalfWay = Math.round(this.duration/2);
+})
+
+$(video1).on('timeupdate', function(){
+	var currentTime = Math.round(this.currentTime);
+	var durationNum = Math.round(this.duration);
+
+	if(currentTime == choicePart && question1Asked == false){
+		question1Asked = true;
+		video1[0].pause();
+		$.featherlight($('.popUpQuestion1'))
+	}
+
+	if(currentTime == videoHalfWay){
+		// Halfway point
+	}
+
+	if(currentTime == durationNum){
+		// Video complete
+	}
+
+});
+
+</script>
+
+<!-- Step 10: Good choice and bad choice -->
+<script type="text/javascript">
+	
+$('.goodChoice').on('click', function(){
+	goodChoiceChosen = true;
+	$.featherlight.close();
+	video1[0].currentTime = goodChoicePart;
+})
+
+$('.badChoice').on('click', function(){
+	$.featherlight.close();
+	video1[0].currentTime = badChoicePart;
+})
+
+</script>
+
+<!-- Step 11: Stop at bad choice -->
+<script type="text/javascript">
+	
+if(currentTime == badChoicePart && goodChoiceChosen == true){
+	video1[0].pause();
+}
+	
+</script>
