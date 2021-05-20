@@ -33,7 +33,7 @@ img{
 }
 
 .videoArea{
-	position: relative;
+	position: absolute;
 }
 
 .box1{
@@ -62,4 +62,7 @@ img{
 
 .longBtns{
 	display: block;
+}
+.featherlight .featherlight-close-icon{
+	display: none;
 }

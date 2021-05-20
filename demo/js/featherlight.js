@@ -105,7 +105,7 @@
 		root:           'body',                /* Where to append featherlights */
 		openSpeed:      250,                   /* Duration of opening animation */
 		closeSpeed:     250,                   /* Duration of closing animation */
-		closeOnClick:   'background',          /* Close lightbox on click ('background', 'anywhere' or false) */
+		closeOnClick:   'false',          /* Close lightbox on click ('background', 'anywhere' or false) */
 		closeOnEsc:     true,                  /* Close lightbox when pressing esc */
 		closeIcon:      '&#10005;',            /* Close icon &#10005; */
 		loading:        '',                    /* Content to show while initial content is loading */

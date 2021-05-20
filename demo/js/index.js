@@ -9,8 +9,10 @@ $(document).ready(function(){
 	$.featherlight.defaults.afterClose = playPauseVideo;
 
 	video1 = $('#video1');
+   
 
-
+	
+     
 	$(video1).on('timeupdate', function(){
 		var currentTime = Math.round(this.currentTime);
         var choicePart = 10;
@@ -21,17 +23,30 @@ $(document).ready(function(){
 			question1Asked = true;
 			video1[0].pause();
 			$.featherlight($('.popUpQuestion1'))
+			$("select.myForm").change(function(){
+				var selected = $(this).children("option:selected").val();
+				console.log("You have selected" + selected);
+			});
+			$('.longBtns').click(function(){
+				$.featherlight.current().close();
+			})
 		}
 
         if(currentTime == choicePart1 && question2Asked == false){
 			question2Asked = true;
 			video1[0].pause();
 			$.featherlight($('.popUpQuestion2'))
+			$('.longBtns').click(function(){
+				$.featherlight.current().close();
+			})
 		}
         if(currentTime == choicePart3 && question3Asked == false){
 			question3Asked = true;
 			video1[0].pause();
 			$.featherlight($('.popUpQuestion3'))
+			$('.longBtns').click(function(){
+				$.featherlight.current().close();
+			})
 		}
 
 		

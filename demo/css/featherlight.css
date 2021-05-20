@@ -91,7 +91,7 @@
 		font-family: Arial, sans-serif;
 		background: #fff; /* Set the background in case it overlaps the content */
 		background: rgba(255, 255, 255, 0.3);
-		color: #000;
+		color: #333;
 	}
 
 
@@ -112,6 +112,7 @@
 		border: none;
 	}
 }
+
 
 /* handling phones and small screens */
 @media only screen and (max-width: 1024px) {

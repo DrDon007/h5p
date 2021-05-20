@@ -24,24 +24,25 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
+    <div id="container">
 		
 		<div class="row videoArea">
-			<div class="box1"></div>
-			<div class="box2"></div>
 			<video id="video1" controls autoplay="true">
 				<source src="video1.mp4" type="video/mp4">
 				Your browser does not support the video tag.
 			</video>
 		</div>
+       <form class="myForm">
 		<div class="lightbox popUpQuestion1">
 			<h4>Question 1</h4>
 			<p>How the video feels</p>
 			<br>
-			<a href="#" class="button longBtns">Good</a><br>
-			<a href="#" class="button longBtns">Not bad</a><br>
-			<a href="#" class="button longBtns">Poor</a><br>
+			<a href="#" class="button longBtns" value="Good">Good</a><br>
+			<a href="#" class="button longBtns" value="Not Bad">Not bad</a><br>
+			<a href="#" class="button longBtns" value="Poor">Poor</a><br>
 		</div>
+	</form>
+
 		<div class="lightbox popUpQuestion2">
 			<h4>Question 2</h4>
 			<p>Rate The Video</p>
@@ -49,7 +50,6 @@
 			<a href="#" class="button longBtns">5star</a><br>
 			<a href="#" class="button longBtns">4star</a><br>
 			<a href="#" class="button longBtns">3star</a><br>
-			<a href="#" class="button longBtns">2star</a><br>
 		</div>
 		<div class="lightbox popUpQuestion3">
 			<h4>Question 3</h4>
