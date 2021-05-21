@@ -25,43 +25,41 @@
 </head>
 <body>
     <div id="container">
-		
 		<div class="row videoArea">
 			<video id="video1" controls autoplay="true">
 				<source src="video1.mp4" type="video/mp4">
 				Your browser does not support the video tag.
 			</video>
 		</div>
-       <form class="myForm">
-		<div class="lightbox popUpQuestion1">
+		<?php include 'php/index.php';?>
+		<div class="lightbox popUpQuestion1"> 
+			<form action="php/index.php" method="GET">
 			<h4>Question 1</h4>
 			<p>How the video feels</p>
 			<br>
-			<a href="#" class="button longBtns" value="Good">Good</a><br>
-			<a href="#" class="button longBtns" value="Not Bad">Not bad</a><br>
-			<a href="#" class="button longBtns" value="Poor">Poor</a><br>
-		</div>
+			<input class="q1" type="radio" name="Question1" value="Good">Good<br>
+			<input class="q1" type="radio" name="Question1" value="Bad">Bad<br>
+			<input class="q1" type="radio" name="Question1" value="Poor">Poor<br>
+			</div>
 	</form>
 
 		<div class="lightbox popUpQuestion2">
 			<h4>Question 2</h4>
 			<p>Rate The Video</p>
 			<br>
-			<a href="#" class="button longBtns">5star</a><br>
-			<a href="#" class="button longBtns">4star</a><br>
-			<a href="#" class="button longBtns">3star</a><br>
+			<input class="q2" type="radio" name="Question2" value="5Star">5Star<br>
+			<input class="q2" type="radio" name="Question2" value="4Star">4Star<br>
+			<input class="q2" type="radio" name="Question2" value="3Star">3Star<br>
 		</div>
 		<div class="lightbox popUpQuestion3">
 			<h4>Question 3</h4>
 			<p>Have you got something  from the video?</p>
 			<br>
-			<a href="#" class="button longBtns">Yes</a><br>
-			<a href="#" class="button longBtns">No</a><br>
-			<a href="#" class="button longBtns">cant say</a><br>
+			<input class="q3" type="radio" name="Question3" value="Yes">Yes<br>
+			<input class="q3" type="radio" name="Question3" value="No">No<br>
+			<input class="q3" type="radio" name="Question3" value="Can't say">can't say<br>
 		</div>
-
-	
-
 	</div>
 </body>
 </html>
+

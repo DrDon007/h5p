@@ -1,4 +1,3 @@
-
 var video1;
 var question1Asked = false;
 var question2Asked = false;
@@ -23,12 +22,11 @@ $(document).ready(function(){
 			question1Asked = true;
 			video1[0].pause();
 			$.featherlight($('.popUpQuestion1'))
-			$("select.myForm").change(function(){
-				var selected = $(this).children("option:selected").val();
-				console.log("You have selected" + selected);
-			});
-			$('.longBtns').click(function(){
-				$.featherlight.current().close();
+			$('.q1').click(function(){
+	          let answer1 = $("input[type='radio'][name='Question1']:checked").val();
+			  setCookie("answer1",answer1,1)
+			  $.featherlight.current().close();
+
 			})
 		}
 
@@ -36,17 +34,22 @@ $(document).ready(function(){
 			question2Asked = true;
 			video1[0].pause();
 			$.featherlight($('.popUpQuestion2'))
-			$('.longBtns').click(function(){
-				$.featherlight.current().close();
-			})
+			$('.q2').click(function(){
+				let answer2 = $("input[type='radio'][name='Question2']:checked").val();
+				console.log(answer2)
+				$.featherlight.current().close();  
+			  })
 		}
         if(currentTime == choicePart3 && question3Asked == false){
 			question3Asked = true;
 			video1[0].pause();
 			$.featherlight($('.popUpQuestion3'))
-			$('.longBtns').click(function(){
+			$('.q3').click(function(){
+				let answer3 = $("input[type='radio'][name='Question3']:checked").val();
+				console.log(answer3)
 				$.featherlight.current().close();
-			})
+  
+			  })
 		}
 
 		
@@ -72,4 +75,14 @@ function playPauseVideo(popUp){
 		video1[0].pause();
 		$.featherlight($(popUp));
 	}
+}
+
+function setCookie(name,value,days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
 }
