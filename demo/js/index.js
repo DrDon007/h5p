@@ -36,7 +36,7 @@ $(document).ready(function(){
 			$.featherlight($('.popUpQuestion2'))
 			$('.q2').click(function(){
 				let answer2 = $("input[type='radio'][name='Question2']:checked").val();
-				console.log(answer2)
+				setCookie("answer2",answer2,1)
 				$.featherlight.current().close();  
 			  })
 		}
@@ -46,7 +46,7 @@ $(document).ready(function(){
 			$.featherlight($('.popUpQuestion3'))
 			$('.q3').click(function(){
 				let answer3 = $("input[type='radio'][name='Question3']:checked").val();
-				console.log(answer3)
+				setCookie("answer3",answer3,1)
 				$.featherlight.current().close();
   
 			  })
